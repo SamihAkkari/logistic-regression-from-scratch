@@ -1,13 +1,36 @@
 # Logistic Regression Cat Classifier
 
-This repository implements a logistic regression model to perform binary image classification (cat vs. non-cat). The model and data handling code is inspired by the exercises in the Deep Learning Specialization (Coursera, Andrew Ng).
+A from-scratch implementation of logistic regression for binary image classification (cat vs. non-cat), built with NumPy only (no external machine learning libraries (like scikit-learn) are used for modeling).
+
+## Purpose
+
+Logistic regression is the simplest building block of neural networks, yet it is often used as a black box through libraries like scikit-learn. This project implements it explicitly, covering forward propagation, the binary cross-entropy loss, backpropagation, and batch gradient descent, so that each step of the learning process is visible and testable.
+
+The model is applied to a practical computer vision task: deciding whether an image contains a cat.
+
+## What It Does
+
+- Loads a labeled dataset of color images stored in HDF5 format.
+- Flattens and normalizes the images into feature vectors.
+- Trains a logistic regression classifier using batch gradient descent.
+- Sigmoid activation and binary cross-entropy loss.
+- Reports training and test accuracy.
+- Includes unit tests that verify the cost, gradients, parameter updates, and predictions against known values.
+
+## Who Can Benefit
+
+- **Students and self-learners** who want to understand how logistic regression and gradient descent work beneath the surface.
+- **Instructors** looking for a compact, readable reference implementation for teaching the fundamentals of neural networks.
+- **Practitioners** who want a minimal baseline for image classification, or a refresher on the mathematics behind more complex models.
 
 ## Project Structure
 
-- `logistic_regression.py`: Implements a logistic regression model from scratch using numpy.
-- `data_utils.py`: Loads, preprocesses, and returns the dataset.
-- `test_logistic_regression.py`: Unit tests for the logistic regression model.
-- `datasets/`: Contains the original `.h5` datasets (`train_catvnoncat.h5`, `test_catvnoncat.h5`) as provided in the Deep Learning Specialization course.
+| File | Description |
+|------|-------------|
+| `logistic_regression.py` | Model implementation: parameter initialization, propagation, training, prediction, and evaluation |
+| `data_utils.py` | Dataset loading and label reshaping |
+| `test_logistic_regression.py` | Unit tests for the core model functions |
+| `datasets/` | Training and test data in `.h5` format |
 
 ## Data Description
 
@@ -27,13 +50,6 @@ The dataset contains color images in `.h5` format:
 
 Images are flattened and normalized before being fed to the model.
 
-## Model Details
+## Acknowledgements
 
-- Implemented from scratch using only numpy.
-- Trains using batch gradient descent.
-- Sigmoid activation and binary cross-entropy loss.
-- No external machine learning libraries (like scikit-learn) are used for modeling.
-
-## Data Origin
-
-The dataset is taken from the Deep Learning Specialization (Coursera, Andrew Ng), "Logistic Regression as a Neural Network" assignment.
+The model design and dataset are inspired by the Deep Learning Specialization by Andrew Ng on Coursera.
